@@ -1,38 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!--
+    Evan Casasanta — Portfolio (Alternating Navy/Red Bands)
+    - This file keeps all structure/content + Tailwind utility classes.
+    - ALL custom styles are in styles.css.
+    - ALL custom JS is in main.js.
+  -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Evan Casasanta | Portfolio</title>
-  <meta name="description" content="Evan Casasanta – Full-stack developer and Computer Science major showcasing projects, skills, and experience." />
+  <meta name="description" content="Evan Casasanta – Software developer showcasing projects, skills, and experience." />
   <link rel="icon" href="favicon.ico" />
 
-  <!-- Tailwind (utility-first styles) -->
+  <!-- TailwindCSS (utility classes only). You can self-host later if you prefer. -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Custom CSS -->
+  <!-- Your custom CSS -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 
+<!--
+  Body note:
+  - Tailwind utilities set base colors/typography.
+  - The alternating section backgrounds are handled by .band in styles.css
+    using nth-of-type selectors on sections inside <main>.
+-->
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100 antialiased">
-  <!-- Scroll Progress -->
+
+  <!-- Scroll position progress bar (width is set in main.js) -->
   <div id="scroll-progress" aria-hidden="true"></div>
 
-  <!-- Skip link -->
-  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 bg-black text-white px-3 py-2 rounded">Skip to content</a>
+  <!-- Skip link for accessibility; appears when focused via keyboard -->
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 bg-black text-white px-3 py-2 rounded">
+    Skip to content
+  </a>
 
-  <!-- Header / Nav -->
+  <!-- Sticky Header / Navigation -->
   <header class="sticky top-0 z-50 shadow-sm backdrop-blur bg-white/80 dark:bg-gray-900/70">
     <nav class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
+      <!-- Left: Logo/Brand -->
       <a href="#" class="flex items-center gap-2 font-semibold tracking-tight">
+        <!-- Small brand dot using a gradient just for a subtle touch -->
         <span class="h-6 w-6 rounded-full inline-block bg-gradient-to-br from-[#c1121f] to-[#003566]"></span>
         <span>EC</span>
       </a>
 
-      <button id="themeToggle" class="text-sm px-3 py-2 rounded border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Toggle dark mode">
+      <!-- Right: Theme toggle button (handled in main.js) -->
+      <button id="themeToggle"
+              class="text-sm px-3 py-2 rounded border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800"
+              aria-label="Toggle dark mode">
         Toggle Theme
       </button>
 
+      <!-- Center: Nav links (hidden on mobile for brevity; add a burger if you want) -->
       <ul class="hidden md:flex gap-6 text-sm font-medium">
         <li><a class="nav-link" href="#about">About</a></li>
         <li><a class="nav-link" href="#projects">Projects</a></li>
@@ -46,46 +67,54 @@
   </header>
 
   <main id="main">
-    <!-- Hero (striped brand) -->
-    <section class="relative striped-bg text-white">
-      <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/20"></div>
-      <div class="max-w-6xl mx-auto px-4 py-28 relative">
-        <h1 class="text-4xl sm:text-6xl font-extrabold leading-tight fade-in">Evan Casasanta</h1>
-        <p class="mt-4 text-lg sm:text-xl max-w-2xl fade-in">
+    <!--
+      IMPORTANT:
+      - Add class="band" to EVERY section you want to be part of the
+        navy/red alternation. The CSS will color odd sections navy and even sections red.
+      - The hero is now a SOLID band (no stripes, no SVG divider).
+    -->
+
+    <!-- HERO (Band #1 -> Navy) -->
+    <section class="band">
+      <div class="max-w-6xl mx-auto px-4 py-24 sm:py-28">
+        <h1 class="text-4xl sm:text-6xl font-extrabold leading-tight">Evan Casasanta</h1>
+        <p class="mt-4 text-lg sm:text-xl max-w-2xl">
           Software Developer crafting performant systems and delightful user experiences.
         </p>
-        <div class="mt-8 flex flex-wrap gap-4 fade-in">
+
+        <div class="mt-8 flex flex-wrap gap-4">
+          <!-- Button styles are in styles.css; they’re designed to contrast on colored bands -->
           <a href="#projects" class="btn-primary">View Projects</a>
           <a href="#contact" class="btn-secondary">Let’s Connect</a>
         </div>
       </div>
-      <!-- angled divider -->
-      <svg class="w-full h-12 text-gray-50 dark:text-gray-900" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
-        <path fill="currentColor" d="M0,0 L1440,0 L1440,100 L0,0 Z"></path>
-      </svg>
     </section>
 
-    <!-- About -->
-    <section id="about" class="section">
+    <!-- ABOUT (Band #2 -> Red) -->
+    <section id="about" class="section band">
       <div class="section-inner">
         <h2 class="section-title">About Me</h2>
+
         <div class="grid md:grid-cols-2 gap-10 items-center">
           <p class="text-lg leading-relaxed">
             I’m a Computer Science student at UMass Lowell who loves building fast, reliable software with clean design.
             From systems programming in C++ to full-stack web apps, I thrive on solving complex problems and shipping polished experiences.
           </p>
-          <img src="headshot.jpg" alt="Portrait of Evan Casasanta" class="rounded-xl shadow-lg w-full max-w-sm mx-auto object-cover" />
+
+          <img src="headshot.jpg"
+               alt="Portrait of Evan Casasanta"
+               class="rounded-xl shadow-lg w-full max-w-sm mx-auto object-cover" />
         </div>
       </div>
     </section>
 
-    <!-- Projects -->
-    <section id="projects" class="section alt">
+    <!-- PROJECTS (Band #3 -> Navy) -->
+    <section id="projects" class="section band">
       <div class="section-inner">
         <div class="flex items-end justify-between gap-4 flex-wrap">
           <h2 class="section-title">Projects</h2>
 
-          <!-- Filters -->
+          <!-- Filter chips (JS in main.js). Add/delete categories by editing data-filter values. -->
           <div class="flex flex-wrap gap-2" role="tablist" aria-label="Filter projects">
             <button class="chip filter-btn" data-filter="all" aria-selected="true">All</button>
             <button class="chip filter-btn" data-filter="cpp">C++</button>
@@ -94,11 +123,11 @@
           </div>
         </div>
 
+        <!-- Project cards; add/remove as you like. Category is indicated by the class (cpp/python/web). -->
         <div id="project-grid" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Card -->
           <article class="project-card cpp">
             <h3 class="card-title">Replica Reaper</h3>
-            <p class="card-body">Duplicate file scanner written in C++ and built with Qt. Finds, reviews, and safely removes dupes.</p>
+            <p class="card-body">Duplicate file scanner written in C++ and built with Qt. Finds, reviews, and safely removes duplicates.</p>
             <div class="card-tags">
               <span class="tag">C++</span><span class="tag">Qt</span><span class="tag">Desktop</span>
             </div>
@@ -124,15 +153,15 @@
             <h3 class="card-title">Piano Robot</h3>
             <p class="card-body">Physical robot that presses keys to play a piano—hardware control meets timing precision.</p>
             <div class="card-tags">
-              <span class="tag">Web</span><span class="tag">Hardware</span>
+              <span class="tag">Hardware</span><span class="tag">Timing</span>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Skills -->
-    <section id="skills" class="section">
+    <!-- SKILLS (Band #4 -> Red) -->
+    <section id="skills" class="section band">
       <div class="section-inner">
         <h2 class="section-title">Skills</h2>
         <div class="flex flex-wrap gap-3">
@@ -147,8 +176,8 @@
       </div>
     </section>
 
-    <!-- Timeline -->
-    <section id="timeline" class="section alt">
+    <!-- TIMELINE (Band #5 -> Navy) -->
+    <section id="timeline" class="section band">
       <div class="section-inner">
         <h2 class="section-title">My Journey</h2>
 
@@ -171,8 +200,8 @@
       </div>
     </section>
 
-    <!-- Resume -->
-    <section id="resume" class="section">
+    <!-- RESUME (Band #6 -> Red) -->
+    <section id="resume" class="section band">
       <div class="section-inner text-center">
         <h2 class="section-title inline-block">Resume</h2>
         <p class="mt-3 text-lg">Grab the PDF to see experience and education.</p>
@@ -180,8 +209,8 @@
       </div>
     </section>
 
-    <!-- Travels -->
-    <section id="travels" class="section alt">
+    <!-- TRAVELS (Band #7 -> Navy) -->
+    <section id="travels" class="section band">
       <div class="section-inner">
         <h2 class="section-title">Travels</h2>
         <div class="flex flex-wrap gap-3 mt-4">
@@ -195,8 +224,8 @@
       </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="section">
+    <!-- CONTACT (Band #8 -> Red) -->
+    <section id="contact" class="section band">
       <div class="section-inner">
         <h2 class="section-title">Contact</h2>
         <p class="mb-6 text-lg">Let’s build something great together.</p>
@@ -209,7 +238,7 @@
             <p><strong>GitHub:</strong> <a class="link" target="_blank" href="https://github.com/evcas918">github.com/evcas918</a></p>
           </div>
 
-          <!-- Mailto form -->
+          <!-- Mailto form (no backend; JS opens your mail client) -->
           <form id="contactForm" class="space-y-4" action="https://example.invalid" onsubmit="return false;">
             <div>
               <label class="form-label" for="name">Name</label>
@@ -230,8 +259,8 @@
     </section>
   </main>
 
-  <!-- Footer (striped) -->
-  <footer class="text-white py-8 striped-bg">
+  <!-- Footer (kept neutral; remove if you prefer the last red band to run to the bottom) -->
+  <footer class="bg-gray-950 text-white py-8">
     <div class="max-w-6xl mx-auto px-4 text-center">
       <p>&copy; <span id="year"></span> Evan Casasanta • Built with Tailwind</p>
     </div>
