@@ -1,0 +1,36 @@
+/* Global behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scroll progress bar */
+#scroll-progress {
+  height: 4px;
+  background: #2563eb; /* Tailwind blue-600 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  width: 0%;
+}
+
+/* Animations (custom classes) */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.fade-in {
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.slide-up {
+  animation: slideUp 2s ease-in-out;
+}
+
+/* Optional: subtle hover lift for cards if you want stronger effect */
+/* .project-card { transition: transform 200ms ease, box-shadow 200ms ease; }
+.project-card:hover { transform: translateY(-2px); } */

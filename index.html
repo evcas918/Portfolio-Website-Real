@@ -4,37 +4,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EC | Portfolio Webite</title>
-  <link rel="icon" href="favicon.ico">
-  <meta name="description" content="Evan Casasanta – Full-stack developer and Computer Science major showcasing advanced projects, skills, and design.">
+  <title>EC | Portfolio Website</title>
+  <link rel="icon" href="favicon.ico" />
+  <meta name="description" content="Evan Casasanta – Full-stack developer and Computer Science major showcasing advanced projects, skills, and design." />
+
+  <!-- Tailwind (utilities & layout only) -->
   <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          animation: {
-            fadeIn: 'fadeIn 2s ease-in-out',
-            slideUp: 'slideUp 2s ease-in-out',
-          },
-          keyframes: {
-            fadeIn: {
-              '0%': { opacity: 0 },
-              '100%': { opacity: 1 },
-            },
-            slideUp: {
-              '0%': { opacity: 0, transform: 'translateY(30px)' },
-              '100%': { opacity: 1, transform: 'translateY(0)' },
-            }
-          },
-        }
-      }
-    };
-  </script>
-  <style>
-    html { scroll-behavior: smooth; }
-    #scroll-progress { height: 4px; background: #2563eb; position: fixed; top: 0; left: 0; z-index: 50; }
-  </style>
+
+  <!-- Your custom CSS (all non-Tailwind styles) -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans">
@@ -42,15 +20,20 @@
   <div id="scroll-progress"></div>
 
   <!-- Hero Header -->
-  <header class="relative bg-gradient-to-br from-blue-800 to-indigo-900 text-white text-center py-24 animate-fadeIn overflow-hidden">
+  <header class="relative bg-gradient-to-br from-blue-800 to-indigo-900 text-white text-center py-24 fade-in overflow-hidden">
     <div class="absolute inset-0 opacity-30 pointer-events-none">
-      <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
-        <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4f46e5"/><stop offset="1" stop-color="#1e3a8a"/></linearGradient></defs>
+      <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+            <stop stop-color="#4f46e5" />
+            <stop offset="1" stop-color="#1e3a8a" />
+          </linearGradient>
+        </defs>
         <path fill="url(#g1)" d="M0,400 C250,100 550,300 800,0 L800,400 Z" />
       </svg>
     </div>
     <h1 class="text-5xl font-bold relative z-10">Evan Casasanta</h1>
-    <p class="mt-4 text-xl relative z-10">Software Developer | Tech Enthusiast | Avid Traveler </p>
+    <p class="mt-4 text-xl relative z-10">Software Developer | Tech Enthusiast | Avid Traveler</p>
     <a href="#contact" class="mt-6 inline-block bg-yellow-400 text-black font-semibold px-6 py-3 rounded-full hover:bg-yellow-300 transition shadow relative z-10">Let's Connect</a>
   </header>
 
@@ -68,146 +51,146 @@
     </div>
   </nav>
 
- <!-- About Section -->
- <section id="about" class="bg-white dark:bg-gray-800 py-20 px-6 animate-slideUp">
-    <div class="max-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+  <!-- About Section -->
+  <section id="about" class="bg-white dark:bg-gray-800 py-20 px-6 slide-up">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
       <div class="md:w-1/2">
         <h2 class="text-4xl font-bold mb-8 border-b-4 border-blue-700 inline-block ml-1">About Me</h2>
         <p class="text-lg leading-relaxed">
-          My name is Evan Casasanta, I'm a Computer Science student at UMass Lowell with a passion for software that blends performance with great design. From systems programming to full-stack web apps, I enjoy solving complex problems and crafting memorable user experiences.
+          My name is Evan Casasanta, I'm a Computer Science student at UMass Lowell with a passion for software that blends performance with great design.
+          From systems programming to full-stack web apps, I enjoy solving complex problems and crafting memorable user experiences.
         </p>
       </div>
       <div class="md:w-1/2">
-        <img src="headshot.jpg" alt="Evan Casasanta" class="rounded-lg shadow-lg w-full max-w-sm mx-auto">
+        <img src="headshot.jpg" alt="Evan Casasanta headshot" class="rounded-lg shadow-lg w-full max-w-sm mx-auto">
       </div>
     </div>
   </section>
 
-<!-- Project Filter + Projects Section -->
-<section id="projects" class="bg-gray-100 dark:bg-gray-800 py-20 px-6 animate-slideUp">
-    <h2 class="text-4xl font-bold mb-12 border-b-4 border-indigo-500 inline-block">Projects</h2>
-    
-    <div id="project-grid" class="grid gap-8 sm:grid-cols-2">
-      <div class="project-card cpp bg-white/70 dark:bg-white/10 backdrop-blur rounded-xl p-6 shadow-xl transition hover:scale-105">
-        <h3 class="text-2xl font-semibold">Replica Reaper</h3>
-        <p class="text-sm mt-2">Duplicate file scanner written in C++ and built using Qt.</p>
+  <!-- Projects Section -->
+  <section id="projects" class="bg-gray-100 dark:bg-gray-800 py-20 px-6 slide-up">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl font-bold mb-12 border-b-4 border-indigo-500 inline-block">Projects</h2>
+
+      <!-- Optional filter controls -->
+      <!--
+      <div class="mb-8 flex flex-wrap gap-3">
+        <button data-filter="all" class="filter-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600">All</button>
+        <button data-filter="cpp" class="filter-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600">C++</button>
+        <button data-filter="python" class="filter-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600">Python</button>
+        <button data-filter="web" class="filter-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600">Web</button>
       </div>
-      <div class="project-card python bg-white/70 dark:bg-white/10 backdrop-blur rounded-xl p-6 shadow-xl transition hover:scale-105">
-        <h3 class="text-2xl font-semibold">Workout Tracker Bot</h3>
-        <p class="text-sm mt-2">Discord bot for tracking gym progress, built with Python and deployed with Railway.</p>
-      </div>
-      <div class="project-card web bg-white/70 dark:bg-white/10 backdrop-blur rounded-xl p-6 shadow-xl transition hover:scale-105">
-        <h3 class="text-2xl font-semibold">Guess the Soccer Player</h3>
-        <p class="text-sm mt-2">Browser game built using JavaScript and styled UI elements.</p>
-      </div>
-      <div class="project-card web bg-white/70 dark:bg-white/10 backdrop-blur rounded-xl p-6 shadow-xl transition hover:scale-105">
-        <h3 class="text-2xl font-semibold">Piano Robot</h3>
-        <p class="text-sm mt-2">Robot that manually plays a piano</p>
+      -->
+
+      <div id="project-grid" class="grid gap-8 sm:grid-cols-2">
+        <div class="project-card cpp bg-white/70 dark:bg-white/10 backdrop-blur rounded-xl p-6 shadow-xl transition hover:scale-105">
+          <h3 class="text-2xl font-semibold">Replica Reaper</h3>
+          <p class="text-sm mt-2">Duplicate file scanner written in C++ and built using Qt.</p>
+        </div>
+        <div class="project-card python bg-white/70 dark:bg-white/10 backdrop-blur rounded-xl p-6 shadow-xl transition hover:scale-105">
+          <h3 class="text-2xl font-semibold">Workout Tracker Bot</h3>
+          <p class="text-sm mt-2">Discord bot for tracking gym progress, built with Python and deployed with Railway.</p>
+        </div>
+        <div class="project-card web bg-white/70 dark:bg-white/10 backdrop-blur rounded-xl p-6 shadow-xl transition hover:scale-105">
+          <h3 class="text-2xl font-semibold">Guess the Soccer Player</h3>
+          <p class="text-sm mt-2">Browser game built using JavaScript and styled UI elements.</p>
+        </div>
+        <div class="project-card web bg-white/70 dark:bg-white/10 backdrop-blur rounded-xl p-6 shadow-xl transition hover:scale-105">
+          <h3 class="text-2xl font-semibold">Piano Robot</h3>
+          <p class="text-sm mt-2">Robot that manually plays a piano.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Skills Section -->
-<section id="skills" class="bg-white-100 dark:bg-gray-800 py-20 px-6 animate-slideUp">
-    <h2 class="text-4xl font-bold mb-12 border-b-4 border-indigo-500 inline-block">Skills</h2>
-    <span class="bg-gradient-to-r from-blue-500 to-blue-700 text-white px-4 py-2 rounded-full">C++</span>
-    <span class="bg-gradient-to-r from-green-500 to-green-700 text-white px-4 py-2 rounded-full">Python</span>
-    <span class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-4 py-2 rounded-full">JavaScript</span>
-    <span class="bg-purple-600 text-white px-4 py-2 rounded-full">SQL</span>
-    <span class="bg-gray-800 text-white px-4 py-2 rounded-full">Linux</span>
-    <span class="bg-red-500 text-white px-4 py-2 rounded-full">Git</span>
-    <span class="bg-indigo-500 text-white px-4 py-2 rounded-full">Tailwind CSS</span>
-  </div>
-</section>
-
-<!-- Timeline Section -->
-<section id="timeline" class="bg-gray-100 dark:bg-gray-800 py-20 px-6 animate-slideUp">
-    <h2 class="text-4xl font-bold mb-12 border-b-4 border-indigo-500 inline-block">My Journey</h2>
-    <!-- Timeline Entry Template -->
-    <div>
-      <h4 class="text-xl font-semibold">2021 – Graduated High School/Started College</h4>
-      <p class="text-sm">Finshed high school, worked over the summer at Amerasport inc. Began my first semester studying computer science at UML</p>
+  <!-- Skills Section -->
+  <section id="skills" class="bg-white dark:bg-gray-800 py-20 px-6 slide-up">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl font-bold mb-12 border-b-4 border-indigo-500 inline-block">Skills</h2>
+      <div class="flex flex-wrap gap-3">
+        <span class="bg-gradient-to-r from-blue-500 to-blue-700 text-white px-4 py-2 rounded-full">C++</span>
+        <span class="bg-gradient-to-r from-green-500 to-green-700 text-white px-4 py-2 rounded-full">Python</span>
+        <span class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-4 py-2 rounded-full">JavaScript</span>
+        <span class="bg-purple-600 text-white px-4 py-2 rounded-full">SQL</span>
+        <span class="bg-gray-800 text-white px-4 py-2 rounded-full">Linux</span>
+        <span class="bg-red-500 text-white px-4 py-2 rounded-full">Git</span>
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full">Tailwind CSS</span>
+      </div>
     </div>
-    <div>
-      <h4 class="text-xl font-semibold">2024 – Study Abroad at CTU in Prague Czech Republic</h4>
-      <p class="text-sm">From Febuary to June I was studying abroad in Prague. Took some interesting classses such as Computer Networking, Databases, and Robot Design. Spent alot of time traveling around Europe as well. Made tons of connections with new people </p>
+  </section>
+
+  <!-- Timeline Section -->
+  <section id="timeline" class="bg-gray-100 dark:bg-gray-800 py-20 px-6 slide-up">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl font-bold mb-12 border-b-4 border-indigo-500 inline-block">My Journey</h2>
+      <div class="space-y-6">
+        <div>
+          <h4 class="text-xl font-semibold">2021 – Graduated High School / Started College</h4>
+          <p class="text-sm">Finished high school, worked over the summer at Amerasport Inc. Began my first semester studying Computer Science at UML.</p>
+        </div>
+        <div>
+          <h4 class="text-xl font-semibold">2024 – Study Abroad at CTU in Prague, Czech Republic</h4>
+          <p class="text-sm">From February to June I studied abroad in Prague. Courses included Computer Networking, Databases, and Robot Design. Traveled throughout Europe and made tons of connections.</p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Resume Section -->
-<section id="resume" class="bg-white-100 dark:bg-gray-800 py-20 px-6 animate-slideUp">
-    <h2 class="text-4xl font-bold mb-12 border-b-4 border-indigo-500 inline-block">Resume</h2>
-  <p class="text-center mb-6 text-lg">Download my resume to learn more about my experience and education.</p>
-  <div class="text-center">
-    <a href="resume.pdf" download class="bg-blue-700 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-600 transition">Download Resume</a>
-  </div>
-</section>
+  <!-- Resume Section -->
+  <section id="resume" class="bg-white dark:bg-gray-800 py-20 px-6 slide-up">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-12 border-b-4 border-indigo-500 inline-block">Resume</h2>
+      <p class="mb-6 text-lg">Download my resume to learn more about my experience and education.</p>
+      <a href="resume.pdf" download class="bg-blue-700 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-600 transition">Download Resume</a>
+    </div>
+  </section>
 
-<!-- Travels Section -->
-<section id="travels" class="bg-gray-100 dark:bg-gray-800 py-20 px-6 animate-slideUp">
-    <h2 class="text-4xl font-bold mb-12 border-b-4 border-indigo-500 inline-block">Travels</h2>
-    <span class="bg-gradient-to-r from-blue-500 to-blue-700 text-white px-4 py-2 rounded-full">Prague</span>
-    <span class="bg-gradient-to-r from-green-500 to-green-700 text-white px-4 py-2 rounded-full">Barcelona</span>
-    <span class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-4 py-2 rounded-full">Mallorca</span>
-    <span class="bg-purple-600 text-white px-4 py-2 rounded-full">Munich</span>
-    <span class="bg-gray-800 text-white px-4 py-2 rounded-full">Berlin</span>
-    <span class="bg-red-500 text-white px-4 py-2 rounded-full">Amsterdam</span>
-    <span class="bg-indigo-500 text-white px-4 py-2 rounded-full">Copenhagen</span>
-    <span class="bg-gradient-to-r from-blue-500 to-blue-700 text-white px-4 py-2 rounded-full">Milan</span>
-    <span class="bg-gradient-to-r from-green-500 to-green-700 text-white px-4 py-2 rounded-full">Turin</span>
-    <span class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-4 py-2 rounded-full">Venice</span>
-    <span class="bg-purple-600 text-white px-4 py-2 rounded-full">Rome</span>
-    <span class="bg-gray-800 text-white px-4 py-2 rounded-full">London</span>
-    <span class="bg-red-500 text-white px-4 py-2 rounded-full">Lisbon</span>
-    <span class="bg-indigo-500 text-white px-4 py-2 rounded-full">Monaco</span>
-      <span class="bg-purple-600 text-white px-4 py-2 rounded-full">Nice</span>
-    <span class="bg-gray-800 text-white px-4 py-2 rounded-full">Zurich</span>
-    <span class="bg-red-500 text-white px-4 py-2 rounded-full">Paris</span>
-    <span class="bg-indigo-500 text-white px-4 py-2 rounded-full">Marseille</span>
-</section>
+  <!-- Travels Section -->
+  <section id="travels" class="bg-gray-100 dark:bg-gray-800 py-20 px-6 slide-up">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl font-bold mb-12 border-b-4 border-indigo-500 inline-block">Travels</h2>
+      <div class="flex flex-wrap gap-3">
+        <span class="bg-gradient-to-r from-blue-500 to-blue-700 text-white px-4 py-2 rounded-full">Prague</span>
+        <span class="bg-gradient-to-r from-green-500 to-green-700 text-white px-4 py-2 rounded-full">Barcelona</span>
+        <span class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-4 py-2 rounded-full">Mallorca</span>
+        <span class="bg-purple-600 text-white px-4 py-2 rounded-full">Munich</span>
+        <span class="bg-gray-800 text-white px-4 py-2 rounded-full">Berlin</span>
+        <span class="bg-red-500 text-white px-4 py-2 rounded-full">Amsterdam</span>
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full">Copenhagen</span>
+        <span class="bg-gradient-to-r from-blue-500 to-blue-700 text-white px-4 py-2 rounded-full">Milan</span>
+        <span class="bg-gradient-to-r from-green-500 to-green-700 text-white px-4 py-2 rounded-full">Turin</span>
+        <span class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-4 py-2 rounded-full">Venice</span>
+        <span class="bg-purple-600 text-white px-4 py-2 rounded-full">Rome</span>
+        <span class="bg-gray-800 text-white px-4 py-2 rounded-full">London</span>
+        <span class="bg-red-500 text-white px-4 py-2 rounded-full">Lisbon</span>
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full">Monaco</span>
+        <span class="bg-purple-600 text-white px-4 py-2 rounded-full">Nice</span>
+        <span class="bg-gray-800 text-white px-4 py-2 rounded-full">Zurich</span>
+        <span class="bg-red-500 text-white px-4 py-2 rounded-full">Paris</span>
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full">Marseille</span>
+      </div>
+    </div>
+  </section>
 
-<!-- Contact Section -->
-<section id="contact" class="bg-white-100 dark:bg-gray-800 py-20 px-6 animate-slideUp">
-    <h2 class="text-4xl font-bold mb-12 border-b-4 border-indigo-500 inline-block">Contact</h2>
-  <p class="text-center mb-4 text-lg">Let’s build something great together</p>
-  <div class="text-center space-y-2">
-    <p><strong>Email:</strong> <a href="mailto:evancasasanta18@hotmail.com" class="text-blue-600 hover:underline">evancasasanta18@hotmail.com</a></p>
-    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/evan-casasanta-16b829253/" target="_blank" class="text-blue-600 hover:underline">https://www.linkedin.com/in/evanc/</a></p>
-    <p><strong>GitHub:</strong> <a href="https://github.com/evcas918" target="_blank" class="text-blue-600 hover:underline">https://github.com/evcas918</a></p>
-  </div>
-</section>
-
-<script>
-  function filterProjects(category) {
-    const cards = document.querySelectorAll('.project-card');
-    cards.forEach(card => {
-      if (category === 'all' || card.classList.contains(category)) {
-        card.classList.remove('hidden');
-      } else {
-        card.classList.add('hidden');
-      }
-    });
-  }
-</script>
-  <!-- These will be regenerated and inserted to follow the new enhancements. -->
+  <!-- Contact Section -->
+  <section id="contact" class="bg-white dark:bg-gray-800 py-20 px-6 slide-up">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl font-bold mb-12 border-b-4 border-indigo-500 inline-block">Contact</h2>
+      <p class="text-center mb-4 text-lg">Let’s build something great together.</p>
+      <div class="text-center space-y-2">
+        <p><strong>Email:</strong> <a href="mailto:evancasasanta18@hotmail.com" class="text-blue-600 hover:underline">evancasasanta18@hotmail.com</a></p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/evan-casasanta-16b829253/" target="_blank" class="text-blue-600 hover:underline">linkedin.com/in/evan-casasanta-16b829253</a></p>
+        <p><strong>GitHub:</strong> <a href="https://github.com/evcas918" target="_blank" class="text-blue-600 hover:underline">github.com/evcas918</a></p>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="bg-blue-900 text-white text-center py-6">
     <p>&copy; 2025 Evan Casasanta. Built with ❤️ and Tailwind CSS.</p>
   </footer>
 
-  <!-- Scroll progress script -->
-  <script>
-    const progress = document.getElementById("scroll-progress");
-    window.addEventListener("scroll", () => {
-      const scrollTop = document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      progress.style.width = `${(scrollTop / height) * 100}%`;
-    });
-  </script>
-
-  
+  <!-- Custom JS -->
+  <script src="main.js"></script>
 </body>
 </html>
