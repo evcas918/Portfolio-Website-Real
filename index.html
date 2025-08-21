@@ -1,193 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EC | Portfolio Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Evan Casasanta | Portfolio</title>
+  <meta name="description" content="Evan Casasanta – Full-stack developer and Computer Science major showcasing projects, skills, and experience." />
   <link rel="icon" href="favicon.ico" />
-  <meta name="description" content="Evan Casasanta – Full-stack developer and Computer Science major showcasing advanced projects, skills, and design." />
 
-  <!-- Tailwind (utilities & layout only) -->
+  <!-- Tailwind (utility-first styles) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Your custom CSS (all non-Tailwind styles) -->
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans">
-  <!-- Scroll Progress Bar -->
-  <div id="scroll-progress"></div>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100 antialiased">
+  <!-- Scroll Progress -->
+  <div id="scroll-progress" aria-hidden="true"></div>
 
-  <!-- Hero Header -->
-  <header class="relative bg-gradient-to-br from-blue-800 to-indigo-900 text-white text-center py-24 fade-in overflow-hidden">
-    <div class="absolute inset-0 opacity-30 pointer-events-none">
-      <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-        <defs>
-          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-            <stop stop-color="#4f46e5" />
-            <stop offset="1" stop-color="#1e3a8a" />
-          </linearGradient>
-        </defs>
-        <path fill="url(#g1)" d="M0,400 C250,100 550,300 800,0 L800,400 Z" />
-      </svg>
-    </div>
-    <h1 class="text-5xl font-bold relative z-10">Evan Casasanta</h1>
-    <p class="mt-4 text-xl relative z-10">Software Developer | Tech Enthusiast | Avid Traveler</p>
-    <a href="#contact" class="mt-6 inline-block bg-yellow-400 text-black font-semibold px-6 py-3 rounded-full hover:bg-yellow-300 transition shadow relative z-10">Let's Connect</a>
+  <!-- Skip link -->
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 bg-black text-white px-3 py-2 rounded">Skip to content</a>
+
+  <!-- Header / Nav -->
+  <header class="sticky top-0 z-50 shadow-sm backdrop-blur bg-white/80 dark:bg-gray-900/70">
+    <nav class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="#" class="flex items-center gap-2 font-semibold tracking-tight">
+        <span class="h-6 w-6 rounded-full inline-block bg-gradient-to-br from-[#c1121f] to-[#003566]"></span>
+        <span>EC</span>
+      </a>
+
+      <button id="themeToggle" class="text-sm px-3 py-2 rounded border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Toggle dark mode">
+        Toggle Theme
+      </button>
+
+      <ul class="hidden md:flex gap-6 text-sm font-medium">
+        <li><a class="nav-link" href="#about">About</a></li>
+        <li><a class="nav-link" href="#projects">Projects</a></li>
+        <li><a class="nav-link" href="#skills">Skills</a></li>
+        <li><a class="nav-link" href="#timeline">Timeline</a></li>
+        <li><a class="nav-link" href="#resume">Resume</a></li>
+        <li><a class="nav-link" href="#travels">Travels</a></li>
+        <li><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Navigation -->
-  <nav class="bg-white dark:bg-gray-800 shadow sticky top-0 z-40">
-    <div class="max-w-6xl mx-auto flex justify-center space-x-6 py-3">
-      <a href="#" class="hover:text-blue-600 font-medium">EC</a>
-      <a href="#about" class="hover:text-blue-600 font-medium">About</a>
-      <a href="#projects" class="hover:text-blue-600 font-medium">Projects</a>
-      <a href="#skills" class="hover:text-blue-600 font-medium">Skills</a>
-      <a href="#timeline" class="hover:text-blue-600 font-medium">Timeline</a>
-      <a href="#resume" class="hover:text-blue-600 font-medium">Resume</a>
-      <a href="#travels" class="hover:text-blue-600 font-medium">Travels</a>
-      <a href="#contact" class="hover:text-blue-600 font-medium">Contact</a>
-    </div>
-  </nav>
-
-  <!-- About Section -->
-  <section id="about" class="bg-white dark:bg-gray-800 py-20 px-6 slide-up">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
-      <div class="md:w-1/2">
-        <h2 class="text-4xl font-bold mb-8 border-b-4 border-blue-700 inline-block ml-1">About Me</h2>
-        <p class="text-lg leading-relaxed">
-          My name is Evan Casasanta, I'm a Computer Science student at UMass Lowell with a passion for software that blends performance with great design.
-          From systems programming to full-stack web apps, I enjoy solving complex problems and crafting memorable user experiences.
+  <main id="main">
+    <!-- Hero (striped brand) -->
+    <section class="relative striped-bg text-white">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/20"></div>
+      <div class="max-w-6xl mx-auto px-4 py-28 relative">
+        <h1 class="text-4xl sm:text-6xl font-extrabold leading-tight fade-in">Evan Casasanta</h1>
+        <p class="mt-4 text-lg sm:text-xl max-w-2xl fade-in">
+          Software Developer crafting performant systems and delightful user experiences.
         </p>
-      </div>
-      <div class="md:w-1/2">
-        <img src="headshot.jpg" alt="Evan Casasanta headshot" class="rounded-lg shadow-lg w-full max-w-sm mx-auto">
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="bg-gray-100 dark:bg-gray-800 py-20 px-6 slide-up">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-4xl font-bold mb-12 border-b-4 border-indigo-500 inline-block">Projects</h2>
-
-      <!-- Optional filter controls -->
-      <!--
-      <div class="mb-8 flex flex-wrap gap-3">
-        <button data-filter="all" class="filter-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600">All</button>
-        <button data-filter="cpp" class="filter-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600">C++</button>
-        <button data-filter="python" class="filter-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600">Python</button>
-        <button data-filter="web" class="filter-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600">Web</button>
-      </div>
-      -->
-
-      <div id="project-grid" class="grid gap-8 sm:grid-cols-2">
-        <div class="project-card cpp bg-white/70 dark:bg-white/10 backdrop-blur rounded-xl p-6 shadow-xl transition hover:scale-105">
-          <h3 class="text-2xl font-semibold">Replica Reaper</h3>
-          <p class="text-sm mt-2">Duplicate file scanner written in C++ and built using Qt.</p>
-        </div>
-        <div class="project-card python bg-white/70 dark:bg-white/10 backdrop-blur rounded-xl p-6 shadow-xl transition hover:scale-105">
-          <h3 class="text-2xl font-semibold">Workout Tracker Bot</h3>
-          <p class="text-sm mt-2">Discord bot for tracking gym progress, built with Python and deployed with Railway.</p>
-        </div>
-        <div class="project-card web bg-white/70 dark:bg-white/10 backdrop-blur rounded-xl p-6 shadow-xl transition hover:scale-105">
-          <h3 class="text-2xl font-semibold">Guess the Soccer Player</h3>
-          <p class="text-sm mt-2">Browser game built using JavaScript and styled UI elements.</p>
-        </div>
-        <div class="project-card web bg-white/70 dark:bg-white/10 backdrop-blur rounded-xl p-6 shadow-xl transition hover:scale-105">
-          <h3 class="text-2xl font-semibold">Piano Robot</h3>
-          <p class="text-sm mt-2">Robot that manually plays a piano.</p>
+        <div class="mt-8 flex flex-wrap gap-4 fade-in">
+          <a href="#projects" class="btn-primary">View Projects</a>
+          <a href="#contact" class="btn-secondary">Let’s Connect</a>
         </div>
       </div>
-    </div>
-  </section>
+      <!-- angled divider -->
+      <svg class="w-full h-12 text-gray-50 dark:text-gray-900" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+        <path fill="currentColor" d="M0,0 L1440,0 L1440,100 L0,0 Z"></path>
+      </svg>
+    </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="bg-white dark:bg-gray-800 py-20 px-6 slide-up">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-4xl font-bold mb-12 border-b-4 border-indigo-500 inline-block">Skills</h2>
-      <div class="flex flex-wrap gap-3">
-        <span class="bg-gradient-to-r from-blue-500 to-blue-700 text-white px-4 py-2 rounded-full">C++</span>
-        <span class="bg-gradient-to-r from-green-500 to-green-700 text-white px-4 py-2 rounded-full">Python</span>
-        <span class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-4 py-2 rounded-full">JavaScript</span>
-        <span class="bg-purple-600 text-white px-4 py-2 rounded-full">SQL</span>
-        <span class="bg-gray-800 text-white px-4 py-2 rounded-full">Linux</span>
-        <span class="bg-red-500 text-white px-4 py-2 rounded-full">Git</span>
-        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full">Tailwind CSS</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Timeline Section -->
-  <section id="timeline" class="bg-gray-100 dark:bg-gray-800 py-20 px-6 slide-up">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-4xl font-bold mb-12 border-b-4 border-indigo-500 inline-block">My Journey</h2>
-      <div class="space-y-6">
-        <div>
-          <h4 class="text-xl font-semibold">2021 – Graduated High School / Started College</h4>
-          <p class="text-sm">Finished high school, worked over the summer at Amerasport Inc. Began my first semester studying Computer Science at UML.</p>
-        </div>
-        <div>
-          <h4 class="text-xl font-semibold">2024 – Study Abroad at CTU in Prague, Czech Republic</h4>
-          <p class="text-sm">From February to June I studied abroad in Prague. Courses included Computer Networking, Databases, and Robot Design. Traveled throughout Europe and made tons of connections.</p>
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="section-inner">
+        <h2 class="section-title">About Me</h2>
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <p class="text-lg leading-relaxed">
+            I’m a Computer Science student at UMass Lowell who loves building fast, reliable software with clean design.
+            From systems programming in C++ to full-stack web apps, I thrive on solving complex problems and shipping polished experiences.
+          </p>
+          <img src="headshot.jpg" alt="Portrait of Evan Casasanta" class="rounded-xl shadow-lg w-full max-w-sm mx-auto object-cover" />
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Resume Section -->
-  <section id="resume" class="bg-white dark:bg-gray-800 py-20 px-6 slide-up">
-    <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-4xl font-bold mb-12 border-b-4 border-indigo-500 inline-block">Resume</h2>
-      <p class="mb-6 text-lg">Download my resume to learn more about my experience and education.</p>
-      <a href="resume.pdf" download class="bg-blue-700 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-600 transition">Download Resume</a>
-    </div>
-  </section>
+    <!-- Projects -->
+    <section id="projects" class="section alt">
+      <div class="section-inner">
+        <div class="flex items-end justify-between gap-4 flex-wrap">
+          <h2 class="section-title">Projects</h2>
 
-  <!-- Travels Section -->
-  <section id="travels" class="bg-gray-100 dark:bg-gray-800 py-20 px-6 slide-up">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-4xl font-bold mb-12 border-b-4 border-indigo-500 inline-block">Travels</h2>
-      <div class="flex flex-wrap gap-3">
-        <span class="bg-gradient-to-r from-blue-500 to-blue-700 text-white px-4 py-2 rounded-full">Prague</span>
-        <span class="bg-gradient-to-r from-green-500 to-green-700 text-white px-4 py-2 rounded-full">Barcelona</span>
-        <span class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-4 py-2 rounded-full">Mallorca</span>
-        <span class="bg-purple-600 text-white px-4 py-2 rounded-full">Munich</span>
-        <span class="bg-gray-800 text-white px-4 py-2 rounded-full">Berlin</span>
-        <span class="bg-red-500 text-white px-4 py-2 rounded-full">Amsterdam</span>
-        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full">Copenhagen</span>
-        <span class="bg-gradient-to-r from-blue-500 to-blue-700 text-white px-4 py-2 rounded-full">Milan</span>
-        <span class="bg-gradient-to-r from-green-500 to-green-700 text-white px-4 py-2 rounded-full">Turin</span>
-        <span class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-4 py-2 rounded-full">Venice</span>
-        <span class="bg-purple-600 text-white px-4 py-2 rounded-full">Rome</span>
-        <span class="bg-gray-800 text-white px-4 py-2 rounded-full">London</span>
-        <span class="bg-red-500 text-white px-4 py-2 rounded-full">Lisbon</span>
-        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full">Monaco</span>
-        <span class="bg-purple-600 text-white px-4 py-2 rounded-full">Nice</span>
-        <span class="bg-gray-800 text-white px-4 py-2 rounded-full">Zurich</span>
-        <span class="bg-red-500 text-white px-4 py-2 rounded-full">Paris</span>
-        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full">Marseille</span>
+          <!-- Filters -->
+          <div class="flex flex-wrap gap-2" role="tablist" aria-label="Filter projects">
+            <button class="chip filter-btn" data-filter="all" aria-selected="true">All</button>
+            <button class="chip filter-btn" data-filter="cpp">C++</button>
+            <button class="chip filter-btn" data-filter="python">Python</button>
+            <button class="chip filter-btn" data-filter="web">Web</button>
+          </div>
+        </div>
+
+        <div id="project-grid" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Card -->
+          <article class="project-card cpp">
+            <h3 class="card-title">Replica Reaper</h3>
+            <p class="card-body">Duplicate file scanner written in C++ and built with Qt. Finds, reviews, and safely removes dupes.</p>
+            <div class="card-tags">
+              <span class="tag">C++</span><span class="tag">Qt</span><span class="tag">Desktop</span>
+            </div>
+          </article>
+
+          <article class="project-card python">
+            <h3 class="card-title">Workout Tracker Bot</h3>
+            <p class="card-body">Discord bot to log workouts and undo mistakes. Deployed on Railway, uses SQL for persistence.</p>
+            <div class="card-tags">
+              <span class="tag">Python</span><span class="tag">Discord</span><span class="tag">SQL</span>
+            </div>
+          </article>
+
+          <article class="project-card web">
+            <h3 class="card-title">Guess the Soccer Player</h3>
+            <p class="card-body">Browser game with smooth UI and fast feedback. Designed for replayability.</p>
+            <div class="card-tags">
+              <span class="tag">JavaScript</span><span class="tag">UI</span>
+            </div>
+          </article>
+
+          <article class="project-card web">
+            <h3 class="card-title">Piano Robot</h3>
+            <p class="card-body">Physical robot that presses keys to play a piano—hardware control meets timing precision.</p>
+            <div class="card-tags">
+              <span class="tag">Web</span><span class="tag">Hardware</span>
+            </div>
+          </article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="bg-white dark:bg-gray-800 py-20 px-6 slide-up">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-4xl font-bold mb-12 border-b-4 border-indigo-500 inline-block">Contact</h2>
-      <p class="text-center mb-4 text-lg">Let’s build something great together.</p>
-      <div class="text-center space-y-2">
-        <p><strong>Email:</strong> <a href="mailto:evancasasanta18@hotmail.com" class="text-blue-600 hover:underline">evancasasanta18@hotmail.com</a></p>
-        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/evan-casasanta-16b829253/" target="_blank" class="text-blue-600 hover:underline">linkedin.com/in/evan-casasanta-16b829253</a></p>
-        <p><strong>GitHub:</strong> <a href="https://github.com/evcas918" target="_blank" class="text-blue-600 hover:underline">github.com/evcas918</a></p>
+    <!-- Skills -->
+    <section id="skills" class="section">
+      <div class="section-inner">
+        <h2 class="section-title">Skills</h2>
+        <div class="flex flex-wrap gap-3">
+          <span class="pill">C++</span>
+          <span class="pill">Python</span>
+          <span class="pill">JavaScript</span>
+          <span class="pill">SQL</span>
+          <span class="pill">Linux</span>
+          <span class="pill">Git</span>
+          <span class="pill">Tailwind CSS</span>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="bg-blue-900 text-white text-center py-6">
-    <p>&copy; 2025 Evan Casasanta. Built with ❤️ and Tailwind CSS.</p>
+    <!-- Timeline -->
+    <section id="timeline" class="section alt">
+      <div class="section-inner">
+        <h2 class="section-title">My Journey</h2>
+
+        <ol class="timeline">
+          <li>
+            <div class="timeline-dot"></div>
+            <div>
+              <h3 class="font-semibold">2021 — Graduated High School / Started College</h3>
+              <p class="text-sm opacity-90">Worked at Amerasport Inc. before beginning Computer Science at UMass Lowell.</p>
+            </div>
+          </li>
+          <li>
+            <div class="timeline-dot"></div>
+            <div>
+              <h3 class="font-semibold">2024 — Study Abroad at CTU, Prague</h3>
+              <p class="text-sm opacity-90">Courses in Networking, Databases, and Robot Design; traveled across Europe and built global connections.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Resume -->
+    <section id="resume" class="section">
+      <div class="section-inner text-center">
+        <h2 class="section-title inline-block">Resume</h2>
+        <p class="mt-3 text-lg">Grab the PDF to see experience and education.</p>
+        <a href="resume.pdf" download class="btn-primary mt-6 inline-block">Download Resume</a>
+      </div>
+    </section>
+
+    <!-- Travels -->
+    <section id="travels" class="section alt">
+      <div class="section-inner">
+        <h2 class="section-title">Travels</h2>
+        <div class="flex flex-wrap gap-3 mt-4">
+          <span class="pill">Prague</span><span class="pill">Barcelona</span><span class="pill">Mallorca</span>
+          <span class="pill">Munich</span><span class="pill">Berlin</span><span class="pill">Amsterdam</span>
+          <span class="pill">Copenhagen</span><span class="pill">Milan</span><span class="pill">Turin</span>
+          <span class="pill">Venice</span><span class="pill">Rome</span><span class="pill">London</span>
+          <span class="pill">Lisbon</span><span class="pill">Monaco</span><span class="pill">Nice</span>
+          <span class="pill">Zurich</span><span class="pill">Paris</span><span class="pill">Marseille</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <div class="section-inner">
+        <h2 class="section-title">Contact</h2>
+        <p class="mb-6 text-lg">Let’s build something great together.</p>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Quick links -->
+          <div class="space-y-2">
+            <p><strong>Email:</strong> <a class="link" href="mailto:evancasasanta18@hotmail.com">evancasasanta18@hotmail.com</a></p>
+            <p><strong>LinkedIn:</strong> <a class="link" target="_blank" href="https://www.linkedin.com/in/evan-casasanta-16b829253/">linkedin.com/in/evan-casasanta-16b829253</a></p>
+            <p><strong>GitHub:</strong> <a class="link" target="_blank" href="https://github.com/evcas918">github.com/evcas918</a></p>
+          </div>
+
+          <!-- Mailto form -->
+          <form id="contactForm" class="space-y-4" action="https://example.invalid" onsubmit="return false;">
+            <div>
+              <label class="form-label" for="name">Name</label>
+              <input id="name" class="input" type="text" placeholder="Your name" required />
+            </div>
+            <div>
+              <label class="form-label" for="email">Email</label>
+              <input id="email" class="input" type="email" placeholder="you@example.com" required />
+            </div>
+            <div>
+              <label class="form-label" for="message">Message</label>
+              <textarea id="message" class="input h-28 resize-y" placeholder="Tell me about your project…" required></textarea>
+            </div>
+            <button class="btn-primary w-full sm:w-auto" id="sendMail">Send Email</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (striped) -->
+  <footer class="text-white py-8 striped-bg">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <p>&copy; <span id="year"></span> Evan Casasanta • Built with Tailwind</p>
+    </div>
   </footer>
 
   <!-- Custom JS -->

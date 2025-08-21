@@ -1,36 +1,105 @@
-/* Global behavior */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Scroll progress bar */
+/* Smooth scroll + progress */
+html { scroll-behavior: smooth; }
 #scroll-progress {
-  height: 4px;
-  background: #2563eb; /* Tailwind blue-600 */
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 50;
-  width: 0%;
+  position: fixed; top: 0; left: 0; height: 4px; width: 0%;
+  background: #c1121f; /* brand red */
+  z-index: 60;
 }
 
-/* Animations (custom classes) */
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-.fade-in {
-  animation: fadeIn 2s ease-in-out;
-}
-
-@keyframes slideUp {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-.slide-up {
-  animation: slideUp 2s ease-in-out;
+/* Brand stripes (red/blue) */
+.striped-bg {
+  background: repeating-linear-gradient(
+    180deg,
+    #c1121f 0,   /* red */
+    #c1121f 90px,
+    #003566 90px,/* blue */
+    #003566 180px
+  );
 }
 
-/* Optional: subtle hover lift for cards if you want stronger effect */
-/* .project-card { transition: transform 200ms ease, box-shadow 200ms ease; }
-.project-card:hover { transform: translateY(-2px); } */
+/* Sections */
+.section { padding: 72px 0; }
+.section.alt { background: rgba(0,0,0,0.02); }
+.dark .section.alt { background: rgba(255,255,255,0.04); }
+.section-inner { max-width: 72rem; margin: 0 auto; padding: 0 1rem; }
+.section-title {
+  @apply text-3xl sm:text-4xl font-extrabold border-b-4 inline-block;
+  border-color: #c1121f; /* brand red underline */
+}
+
+/* Buttons */
+.btn-primary {
+  @apply px-5 py-3 rounded-lg font-semibold text-white shadow;
+  background: #c1121f;
+}
+.btn-primary:hover { filter: brightness(1.08); }
+
+.btn-secondary {
+  @apply px-5 py-3 rounded-lg font-semibold bg-white/90 text-gray-900 shadow;
+}
+.dark .btn-secondary { @apply bg-gray-800 text-white; }
+.btn-secondary:hover { filter: brightness(0.98); }
+
+/* Links */
+.link { @apply text-blue-700 dark:text-blue-400 underline decoration-2 underline-offset-2; }
+
+/* Chips / Pills */
+.chip {
+  @apply px-3 py-1.5 rounded-full text-sm border;
+  border-color: #003566;
+  color: #003566;
+}
+.dark .chip { color: #9ec1ff; border-color: #9ec1ff; }
+.chip[aria-selected="true"] { background: #003566; color: #fff; }
+.dark .chip[aria-selected="true"] { background: #2151a1; }
+
+/* Project cards */
+.project-card {
+  @apply rounded-xl p-6 bg-white/70 dark:bg-white/5 backdrop-blur shadow-md transition;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.project-card:hover { transform: translateY(-3px); }
+.card-title { @apply text-xl font-semibold; }
+.card-body  { @apply mt-2 text-sm leading-relaxed; }
+.card-tags  { @apply mt-4 flex flex-wrap gap-2; }
+.tag {
+  @apply text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300;
+}
+
+/* Pills (skills/travels) */
+.pill {
+  @apply px-4 py-2 rounded-full text-sm bg-gray-900 text-white;
+}
+.dark .pill { @apply bg-gray-100 text-gray-900; }
+
+/* Timeline */
+.timeline {
+  @apply relative border-l-2 pl-6 space-y-8;
+  border-color: #003566;
+}
+.timeline-dot {
+  position: absolute; left: -10px; top: 0.35rem;
+  width: 14px; height: 14px; border-radius: 9999px;
+  background: #c1121f; border: 2px solid #fff;
+  box-shadow: 0 0 0 3px #003566;
+}
+
+/* Form */
+.form-label { @apply block text-sm mb-1 font-medium; }
+.input {
+  @apply w-full rounded-lg border px-3 py-2 bg-white/80 dark:bg-gray-800/70;
+  border-color: rgba(0,0,0,0.15);
+}
+.input:focus { outline: 2px solid #003566; outline-offset: 2px; }
+
+/* Header nav links */
+.nav-link { @apply hover:text-blue-600 dark:hover:text-blue-400; }
+
+/* Motion reduction */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+/* Simple fade/slide for hero */
+@keyframes fadeIn { from {opacity:0; transform:translateY(8px)} to {opacity:1; transform:none} }
+.fade-in { animation: fadeIn 800ms ease both; }
