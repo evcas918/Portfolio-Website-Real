@@ -79,6 +79,7 @@
 :root{
   --brand-navy: #004d98; /* Deep navy — change if you want a different hue */
   --brand-red:  #a50044; /* Rich red  — change if you want a different hue */
+  --brand-gold: #edbb00;
 }
 
 /* Smooth scrolling for anchor links */
@@ -90,7 +91,7 @@ html { scroll-behavior: smooth; }
   top: 0; left: 0;
   height: 4px;
   width: 0%;
-  background: var(--brand-red);
+  background: var(--brand-gold);
   z-index: 60;
 }
 
