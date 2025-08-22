@@ -77,8 +77,8 @@
 
 /* Brand palette — tweak these two to recolor the site quickly */
 :root{
-  --brand-navy: #141c3c; /* Deep navy — change if you want a different hue */
-  --brand-red:  #c01b2c; /* Rich red  — change if you want a different hue */
+  --brand-navy: #004d98; /* Deep navy — change if you want a different hue */
+  --brand-red:  #a50044; /* Rich red  — change if you want a different hue */
 }
 
 /* Smooth scrolling for anchor links */
