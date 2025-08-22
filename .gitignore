@@ -4,10 +4,6 @@ node_modules/
 # Build artifacts
 dist/*.map
 
-# Optional: if you want to rebuild CSS on deploy (Netlify/Vercel do this)
-# then ignore the built CSS too:
-dist/output.css
-
 # OS / editor junk
 .DS_Store
 Thumbs.db
