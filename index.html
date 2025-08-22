@@ -3,8 +3,8 @@
 <head>
   <!--
     Evan Casasanta — Portfolio (Alternating Navy/Red Bands)
-    - This file keeps all structure/content + Tailwind utility classes.
-    - ALL custom styles are in styles.css.
+    - Uses Tailwind build output only (no CDN).
+    - ALL custom styles live in src/input.css and are compiled to dist/output.css.
     - ALL custom JS is in main.js.
   -->
   <meta charset="UTF-8" />
@@ -12,11 +12,9 @@
   <title>Evan Casasanta | Portfolio</title>
   <meta name="description" content="Evan Casasanta – Software developer showcasing projects, skills, and experience." />
   <link rel="icon" href="favicon.ico" />
-  <link href="./dist/output.css" rel="stylesheet">
 
-
-  <!-- Your custom CSS -->
-  <link rel="stylesheet" href="styles.css" />
+  <!-- Compiled Tailwind CSS -->
+  <link rel="stylesheet" href="./dist/output.css" />
 </head>
 
 <!--
