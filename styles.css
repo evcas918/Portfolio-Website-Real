@@ -17,8 +17,8 @@
 /* --------------------------- */
 
 :root {
-  --brand-navy: #003566; /* Deep navy */
-  --brand-red:  #c1121f; /* Rich red  */
+  --brand-navy: #2e3164; /* Deep navy */
+  --brand-red:  #c01b2c; /* Rich red  */
 }
 
 /* Smooth anchor scrolling across the site */
